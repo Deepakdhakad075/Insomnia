@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Responsive Blog Website Design Tutorial</title>
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+    figure {
+    border: 5px #c0c0c0 solid;
+    display: flex;
+    flex-flow: column;
+    padding: 1px;
+    max-width: 232px;
+    margin: auto;
+    border-color: #c59382;
+}
+img {
+    max-width: 220px;
+    max-height: 150px;
+}
+figcaption {
+    background-color: #222;
+    color: #fff;
+    font: italic smaller sans-serif;
+    padding: 3px;
+    text-align: center;
+}
+
+:root{
+    --orange:#e67e22;
+    --black:#333;
+    --light-color:#777;
+    --border:.1rem solid rgba(0,0,0,.2);
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+*{
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: lighter;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+}
+section{
+    padding:2rem 7%;
+}
+
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    background:var(--black);
+    color:#fff;
+    border-radius: .5rem;
+    padding:.9rem 3rem;
+    cursor: pointer;
+    font-size: 1.7rem;
+}
+
+.btn:hover{
+    background:var(--orange);
+}
+
+.header{
+    position: fixed;
+    top:0; left:0; right:0;
+    z-index: 1000;
+    background: #c59382;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    align-items: center;
+    padding:1.2rem 7%;
+    padding-left: 35px;
+    width: 100%;
+}
+
+.header .logo{
+    width: 185px;
+    height: 50px;
+   
+}
+
+.header .logo span{
+    color:var(--orange);
+}
+
+.navbar{
+    padding-left: 600px;
+    padding-right: 12px;
+
+}
+
+.header .navbar a{
+    
+        color: #130303;
+        margin-right: 2rem;
+        font-size: 1.7rem;
+        text-transform: capitalize;
+        padding-right: 70px;
+    
+}
+
+.header .navbar a:hover{
+    color:white;
+}
+
+.header .icons i{
+    height:4.5rem;
+    line-height:4.5rem;
+    width:4.5rem;
+    text-align: center;
+    color:var(--black);
+    background:#eee;
+    border-radius: 50%;
+    margin-left: .7rem;
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+
+.header .icons i:hover{
+    color:#fff;
+    background:var(--orange);
+}
+
+.header .search-form{
+    position: absolute;
+    background:#fff;
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    box-shadow: var(--box-shadow);
+    top:110%; right:7%;
+    height:6rem;
+    width:50rem;
+    padding:1rem;
+    display: none;
+}
+
+.header .search-form.active{
+    display: flex;
+}
+
+.header .search-form #search-box{
+    width:100%;
+    border:var(--border);
+    border-radius: .5rem;
+    padding:1rem;
+    font-size: 1.7rem;
+    color:var(--black);
+    height: 100%;
+}
+
+.header .search-form label{
+    font-size: 2rem;
+    padding-left: 1rem;
+    padding-right: .5rem;
+    cursor: pointer;
+    color:var(--black);
+}
+
+.header .search-form label:hover{
+    color:var(--orange);
+}
+
+#menu-bars{
+    display: none;
+}
+
+.banner{
+    min-height: 100vh;
+    background:url(../images/banner.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    place-items: start;
+    padding-top: 8rem;
+    background-image: url("https://www.mymed.com/image/3493/medicalarticle/800");
+    
+}
+
+.banner .content{
+    text-align: center;
+    background:#fff;
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    padding:3rem;
+    max-width: 50rem;
+    margin-top: 109px;
+}
+
+.banner .content h4{
+    font-size: 4rem;
+    color:var(--black);
+    text-transform: uppercase;
+}
+
+.banner .content p{
+    font-size: 1.7rem;
+    color:var(--light-color);
+    padding:1rem 0;
+    line-height: 1.5;
+}
+ul{
+    
+    color: var(--light-color);
+    font-size: 1.6rem;
+    line-height: 1.7;
+    padding: 1rem 0;
+}
+.container{
+    display: grid;
+    
+    gap:1.5rem;
+    background: #fef9f8;
+}
+
+.container .posts-container .post{
+    width:100%;
+    padding:5rem;
+    background:#fff;
+    border:var(--border);
+    border-radius: .5rem;
+    margin-bottom: 1.5rem;
+}
+
+.container .posts-container .post .image{
+    height: 40rem;
+    width:100%;
+    border-radius: .5rem;
+    object-fit: cover;
+}
+
+.container .posts-container .post .date{
+    padding-top: 2rem;
+    font-size: 1.5rem;
+    color:var(--orange);
+}
+
+.container .posts-container .post .title{
+    padding-top: 1.5rem;
+    font-size: 2.5rem;
+    color:var(--black);
+}
+
+.container .posts-container .post .text{
+    color:var(--light-color);
+    font-size: 1.6rem;
+    line-height: 1.7;
+    padding:1rem 0;
+}
+
+.container .posts-container .links{
+    border-top: var(--border);
+    margin-top: .5rem;
+    padding-top: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.container .posts-container .links .user{
+    margin-right: auto;
+}
+
+.container .posts-container .links .icon{
+    padding-right: 1rem;
+}
+
+.container .posts-container .links a{
+    font-size: 1.5rem;
+    color:var(--light-color);
+}
+
+.container .posts-container .links a i{
+    padding-right: .2rem;
+    color:var(--black);
+}
+
+.container .posts-container .links a:hover{
+    color:var(--orange);
+}
+
+.container .posts-container .links a:hover i{
+    color:var(--orange);
+}
+
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0d0d0d;
+    height: 50px;
+
+}
+
+.footer .credit{
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    color: rgb(204, 196, 196);
+    padding: 1rem 0;
+
+}
+
+.footer .credit span{
+    color:var(--orange);
+}
+
+.footer .follow{
+    padding: 1rem 0;
+}
+
+.footer .follow a{
+    height:4.5rem;
+    line-height:4.5rem;
+    width:4.5rem;
+    border-radius: 50%;
+    font-size: 1.7rem;
+    background:var(--black);
+    color:#fff;
+    margin:0 .1rem;
+    text-align: center;
+}
+
+.footer .follow a:hover{
+    background:var(--orange);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* media queries  */
+
+@media (max-width:991px){
+
+    html{
+        font-size: 55%;
+    }
+
+    .header{
+        padding:1.5rem;
+    }
+
+    section{
+        padding:2rem;
+    }    
+
+    .container{
+        grid-template-columns: 2fr 1fr;
+    }
+
+}
+
+@media (max-width:768px){
+
+    #menu-bars{
+        display: inline-block;
+    }
+
+    .header .search-form{
+        top:100%; left: 0; right: 0;
+        border-top: var(--border);
+        width: 100%;
+        border-radius: 0;
+    }
+    .header .navbar {
+        position: absolute;
+        top: 98%;
+        left: -122px;
+        right: 0px;
+        align-items: center;
+        border-top: var(--border);
+        border-bottom: var(--border);
+        background: #fff;
+        display: none;
+        justify-content: center;
+    }
+   
+    .navbar{
+        padding-left: 260px;
+        padding-right: 260px;
+        justify-content: center;
+        align-items: center;
+    
+    }
+    .header .navbar.active{
+        display: block;
+    }
+
+    .header .navbar a{
+        width: 65px;
+        display: block;
+        background:#f7f7f7;
+        padding:1.5rem;
+        margin:1.5rem;
+        margin-left: -45px;
+        border-radius: .5rem;
+        border:var(--border);
+    }
+
+    .container{
+        grid-template-columns: 1fr;
+        gap:0;
+    }
+
+    .container .posts-container .post .image{
+        height: 30rem;;
+    }
+
+    .footer{
+        flex-flow: column;
+        text-align: center;
+    }
+
+}
+
+@media (max-width:450px){
+
+    html{
+        font-size: 50%;
+    }
+
+    .contact form .inputBox input{
+        width:100%;
+    }    
+
+}
+
+    </style>
+
+</head>
+<body>
+
+
+
+<header class="header">
+
+   <img class="logo" src="https://socialdhara.com/wp-content/uploads/2021/02/4.jpg" alt="logo">
+
+    <nav class="navbar">
+        <a href="#banner">Home</a>
+        <a href="#posts">About</a>
+    </nav>
+
+    <div class="icons">
+        <i class="fas fa-bars" id="menu-bars"></i>
+    </div>
+
+    
+
+</header>
+
+
+
+<section class="banner" id="banner">
+
+    <div class="content">
+        <h4>Insomnia</h4>
+        <p><q> Insomnia is a sleep disorder in which you have trouble falling and/or staying asleep.</q></p>
+       
+    </div>
+
+</section>
+
+
+
+<section class="container" id="posts">
+
+    <div class="posts-container">
+
+        <div class="post">
+            <figure>
+            <img src="https://images.medicinenet.com/images/article/main_image/what-causes-insomnia.jpg" alt="" class="image">
+            <figcaption> Insomnia are increasing in adults day by day</figcaption>
+            </figure>
+            <article>
+
+              <h3 class="title">Is Insomnia are increasing in adults day by day:</h3>
+            <p class="text">According to Centers for disease control and prevention,
+                adults need at least 7-9 hours of sleep in every 24 hour 
+                period, depending on their age. Insomnia is a sleep 
+                disorder that regularly effects millions of people 
+                Worldwide. <br>
+               Someone with insomnia find its difficult to fall asleep or stay asleep. 
+                About a third of all adults reports some insomnia 
+                symptoms. 6 to 10% of adults have symptoms severe 
+                enough to meet the diagnostic criteria for insomnia 
+                disorder. </p>
+        </article>
+        </div>
+
+        <div class="post">
+            <figure>
+                <img src="https://sleepcenterinfo.com/wp-content/uploads/2019/07/Insomnia-Feature-Photo.jpg" alt="" class="image">
+                <figcaption>Insomnia is really dangerous for adults </figcaption>
+                </figure>
+
+            <h3 class="title">Insomnia is really dangerous for adults:</h3>
+            <p class="text">Nowdays 90% of adults are suffering from this disease as 
+                they are surrounded by a work pressure, busy life, stress. 
+                Lack of sleep may lead to development of type two 
+                diabetes. In a study by the university of buffalo in 2009 
+                found a people who slept for less than six hours at night 
+                were upto five times more likely to impaired fasting. 
+                Those who suffered with chronic insomnia are believed to 
+                be more aware to illness and accidents. Lack of sleep can 
+                had to decreased performance and problems with 
+                memory.</p>
+            
+            
+        </div>
+
+        <div class="post">
+            <figure>
+                <img src="https://i0.wp.com/post.healthline.com/wp-content/uploads/2020/08/Insomnia_Causes_and_Risk_Factors-732x549-thumbnail-1.jpg?w=756&h=567" alt="" class="image">
+                <figcaption>What causes 
+                    Insomnia in adults- </figcaption>
+                </figure>
+            
+            <h3 class="title">What causes 
+                Insomnia in adults:</h3>
+            <p class="text">In adult stress is common 
+                reason in this competitive world where we are always 
+                trying to do better than others doing an quite stressful, 
+                changing of job, city, divorced can major reasons. 
+                Poor sleep occurs if you work day and night and we use 
+                mobile phones at night this also cause insomnia. <br> If we can’t sleep in a day so, first consult to an doctor they give 
+                an proper treatment. Thyroid, diabetes , cancer are 
+                common diseases occur in today’s life. Smoking and 
+                drinking are common in adults.</p>
+           
+        </div>
+
+        <div class="post">
+            <figure>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhllxCCC3i8sMXtmkkIJmyvIiNJeE9SOgafQ&usqp=CAU" alt="" class="image">
+                <figcaption> Symptoms</figcaption>
+            </figure>
+            
+            <h3 class="title">Symptoms: </h3>
+            <ul>
+                <li> Difficulty falling asleep at night.</li>
+                <li>waking up 
+                    during the night.</li>
+                <li>waking up too early.</li>
+                <li> daytime tiredness 
+                    or sleepiness.</li>
+                <li>irritability and depression</li>
+                <li> increased error
+                    or accident.</li>
+            </ul>
+           
+           
+        </div>
+
+        <div class="post">
+            <figure>
+                <img src="https://imgix.pedestrian.tv/content/uploads/2021/04/29/VICTIM-BLAMING.jpg?ar=16:9&auto=format&crop=focal&fit=crop&q=65&w=1200" alt="" class="image">
+                <figcaption>Major changes in adults due to insomnia.</figcaption>
+            </figure>
+            
+            <h3 class="title">What major changes occur in adults due to insomnia:</h3>
+           
+            <p class="text">The major changes occur in insomnia is agening. We 
+                required total sleep stays the same or slightly decreased ( 
+                6.5 to 7 hours per night) . It may be harder to fall asleep 
+                and you may spend more total in bed. The transition 
+                between sleep and waking up is often abrupt <br> Older 
+                people wake up average of 3-4 times each night. 
+                Sleep difficulty is annoying problem . Long term insomnia 
+                is major cause of auto accidents and depression. Sleep 
+                deprivation can eventually cause confusion and mental 
+                changes. <br> You can reduce symptoms by taking proper 
+                sleep. Sleep apnea , a condition where breathing stops for 
+                a long time during sleep cause severe problems.</p>
+           
+        </div>
+        <div class="post">
+            <figure>
+                <img src="https://th.bing.com/th/id/OIP.W1IiHmcuuSyNujigObke_QHaEK?pid=ImgDet&rs=1" alt="" class="image">
+                <figcaption>Measures.</figcaption>
+            </figure>
+            
+            <h3 class="title">Measures:</h3>
+           
+            <p class="text">The ISI is a 7 
+                item self report questionnaires assessing the nature , 
+                severity and impact of insomnia. The usual recall period 
+                is the last month and dimensions evaluated are severity 
+                of sleep onset , sleep maintenance and early morning 
+                awakening problem, sleep dissatisfaction, interference of 
+                sleep difficulties with day time faculties. <br> 
+                It is very important to talk with a provider before taking 
+                sleep medicine . However antidepressants effects your 
+                sleep. Sometimes a mild antihistamine work better than 
+                a sleeping pill for relieving short term insomnia. The most 
+                health experts do not recommend these types of 
+                medicines.</p>
+           
+        </div>
+
+
+    </div>
+
+   
+        </div>
+
+    </div>
+
+</section>
+
+<section class="footer">
+
+   
+
+    <div class="credit">created by <span>Deepak Dhakad</span> | all rights reserved</div>
+
+</section>
+<script>
+    let menu = document.querySelector('#menu-bars');
+let navbar = document.querySelector('.navbar');
+
+menu.onclick = () =>{
+  menu.classList.toggle('fa-times');
+  navbar.classList.toggle('active');
+  searchIcon.classList.remove('fa-times');
+  searchForm.classList.remove('active');
+}
+
+window.onscroll = () =>{
+  menu.classList.remove('fa-times');
+  navbar.classList.remove('active');
+  searchIcon.classList.remove('fa-times');
+  searchForm.classList.remove('active');
+}
+</script>
+
+
+    
+</body>
+</html>
